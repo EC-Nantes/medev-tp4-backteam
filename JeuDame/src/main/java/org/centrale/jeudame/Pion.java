@@ -21,7 +21,6 @@ public class Pion extends Piece implements Action{
     public boolean Prendre(Plateau plateau){
         Piece[][] tableau = plateau.getBoard();
         List<int[]> prisesPossibles = new ArrayList<>();
-
         // Directions possibles pour une prise (dépend de la couleur de la pièce)
         int[][] directions = {{-1, -1}, {-1, 1}, {1, -1}, {1, 1}};
 
@@ -34,7 +33,7 @@ public class Pion extends Piece implements Action{
             // Vérifie si la case adverse est valide et contient une pièce adverse,
             // et si la case derrière est vide
             if (newX > 0 && newX < 10 && newY > 0 && newY < 10 && this.getTeam()!=tableau[advX][advY].getTeam() && tableau[newX][newY]==null) {
-                prisesPossibles.add(new int[]{newX, newY});
+                prisesPossibles.add(new int[]{advX, advY, newX, newY});
             }
         }
 
@@ -57,15 +56,11 @@ public class Pion extends Piece implements Action{
 
         if (choix > 0 && choix <= prisesPossibles.size()) {
             int[] pos = prisesPossibles.get(choix - 1);
-            Prise(tableau[pos[0]][pos[1]]);
+            Prise(plateau, tableau[pos[0]][pos[1]], pos[2], pos[3]);
             return true;
         } else {
             System.out.println("Choix invalide.");
             return false;
         }
-    }
-    
-    public void Prise(Piece p){
-        
     }
 }

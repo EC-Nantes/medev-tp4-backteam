@@ -44,7 +44,7 @@ public class Dame extends Piece implements Action {
             
                 // Vérifier si la case d'atterrissage est vide
                 if (newX > 0 && newX < 10 && newY > 0 && newY < 10 && tableau[newX][newY]==null) {
-                    prisesPossibles.add(new int[]{advX, advY});
+                    prisesPossibles.add(new int[]{advX, advY, newX, newY});
                 }
             }
         }
@@ -68,16 +68,12 @@ public class Dame extends Piece implements Action {
 
         if (choix > 0 && choix <= prisesPossibles.size()) {
             int[] pos = prisesPossibles.get(choix - 1);
-            Prise(tableau[pos[0]][pos[1]]);
+            Prise(plateau, tableau[pos[0]][pos[1]], pos[2], pos[3]);
             Prendre(plateau);
             return true;
         } else {
             System.out.println("Choix invalide.");
             return false;
         }
-    }
-
-    private void Prise(Piece piece) {
-        
     }
 }
