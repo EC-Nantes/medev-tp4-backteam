@@ -9,10 +9,10 @@ package org.centrale.jeudame;
  * @author rompe
  */
 public class Plateau {
-    private static final int SIZE = 8;
+    private static final int SIZE = 10;
 
     /**
-     * Génère un plateau de dames 8x8.
+     * Génère un plateau de dames 10x10.
      * Les cases sombres et claires alternent.
      */
     public static String[][] generateBoard() {
