@@ -44,5 +44,17 @@ public abstract class Piece {
         this.y = y;
     }
     
+    public void Prise(Plateau plateau, Piece piece, int newX, int newY){
+        // Supprimer la pièce adverse du plateau
+        plateau.getBoard()[piece.getX()][piece.getY()] = null;
+
+        // Déplacer la pièce courante vers la case d'atterrissage
+        plateau.getBoard()[this.getX()][this.getY()] = null; // Supprime l'ancienne position
+        this.x = newX;
+        this.y = newY;
+        plateau.getBoard()[newX][newY] = this; // Place la pièce à sa nouvelle position
+
+        System.out.println("La pièce en (" + piece.getX() + ", " + piece.getY() + ") a été capturée.");
+    }
     
 }
