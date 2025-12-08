@@ -34,33 +34,25 @@ public class Plateau {
      * Les cases sombres et claires alternent.
      */
     public static String[][] generateBoard() {
-        
-    for (int r = 0; r < size; r++) {
-            for (int c = 0; c < size; c++) {
-                board[r][c] = '.';
-            }
-        }
 
-        // 4 lignes du haut : 'o' une case sur deux
+        // 4 lignes du haut : 'x' une case sur deux
         for (int r = 0; r < 4; r++) {
             for (int c = 0; c < size; c++) {
                 if ((r + c) % 2 == 1) { // une case sur deux (type dames)
-                    board[r][c] = 'o';
+                    board[r][c] = new Pion("x", r, c);
                 }
             }
         }
 
-        // 4 lignes du bas : 'x' une case sur deux
+        // 4 lignes du bas : 'o' une case sur deux
         for (int r = size - 4; r < size; r++) {
             for (int c = 0; c < size; c++) {
                 if ((r + c) % 2 == 1) {
-                    board[r][c] = 'x';
+                    board[r][c] = new Pion("o", r, c);
                 }
             }
         }
         
-
-        return board;
     }
 
 
