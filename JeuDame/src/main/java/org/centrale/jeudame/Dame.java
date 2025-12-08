@@ -79,8 +79,6 @@ public class Dame extends Piece implements Action {
     }
     
     public boolean Prendre(Plateau plateau){
-        
-=======
         Piece[][] tableau = plateau.getBoard();
         List<int[]> prisesPossibles = new ArrayList<>();
 
@@ -137,6 +135,5 @@ public class Dame extends Piece implements Action {
             System.out.println("Choix invalide.");
             return false;
         }
->>>>>>> Prendre_
     }
 }

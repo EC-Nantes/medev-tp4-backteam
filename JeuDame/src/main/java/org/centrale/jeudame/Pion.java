@@ -4,11 +4,9 @@
  */
 package org.centrale.jeudame;
 
-<<<<<<< HEAD
-=======
+
 import java.util.ArrayList;
 import java.util.List;
->>>>>>> Prendre_
 import java.util.Scanner;
 
 /**
@@ -76,8 +74,6 @@ public class Pion extends Piece implements Action{
     }
     
     public boolean Prendre(Plateau plateau){
-        
-=======
         Piece[][] tableau = plateau.getBoard();
         List<int[]> prisesPossibles = new ArrayList<>();
         // Directions possibles pour une prise (dépend de la couleur de la pièce)
@@ -121,6 +117,5 @@ public class Pion extends Piece implements Action{
             System.out.println("Choix invalide.");
             return false;
         }
->>>>>>> Prendre_
     }
 }
