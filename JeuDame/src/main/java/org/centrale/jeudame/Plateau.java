@@ -9,40 +9,52 @@ package org.centrale.jeudame;
  * @author rompe
  */
 public class Plateau {
-    private static final int SIZE = 10;
+    private static final int size = 10;
+    private Piece[][] board = new Piece[size][size];
 
+    public Piece[][] getBoard() {
+        return board;
+    }
+
+    public void setBoard(Piece[][] board) {
+        this.board = board;
+    }
+    
     /**
      * Génère un plateau de dames 10x10.
      * Les cases sombres et claires alternent.
      */
     public static String[][] generateBoard() {
-        String[][] board = new String[SIZE][SIZE];
-
-        for (int row = 0; row < SIZE; row++) {
-            for (int col = 0; col < SIZE; col++) {
-                // Alternance des couleurs
-                boolean dark = (row + col) % 2 != 0;
-
-                // Symboles Unicode pour affichage console
-                board[row][col] = dark ? "⬛" : "⬜";
+        
+    for (int r = 0; r < size; r++) {
+            for (int c = 0; c < size; c++) {
+                board[r][c] = '.';
             }
         }
+
+        // 4 lignes du haut : 'o' une case sur deux
+        for (int r = 0; r < 4; r++) {
+            for (int c = 0; c < size; c++) {
+                if ((r + c) % 2 == 1) { // une case sur deux (type dames)
+                    board[r][c] = 'o';
+                }
+            }
+        }
+
+        // 4 lignes du bas : 'x' une case sur deux
+        for (int r = size - 4; r < size; r++) {
+            for (int c = 0; c < size; c++) {
+                if ((r + c) % 2 == 1) {
+                    board[r][c] = 'x';
+                }
+            }
+        }
+        
 
         return board;
     }
 
-    /**
-     * Affiche le plateau en console.
-     */
-    public static void printBoard(String[][] board) {
-        for (int row = 0; row < SIZE; row++) {
-            StringBuilder line = new StringBuilder();
-            for (int col = 0; col < SIZE; col++) {
-                line.append(board[row][col]);
-            }
-            System.out.println(line);
-        }
-    }
+
 
 
 }
