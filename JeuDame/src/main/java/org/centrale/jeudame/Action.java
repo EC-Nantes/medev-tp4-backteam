@@ -10,6 +10,6 @@ package org.centrale.jeudame;
  */
 public interface Action {
     public void Deplacer(Plateau plateau);
-    public void Prendre(Plateau plateau);
+    public boolean Prendre(Plateau plateau);
     public void Prise(Piece p);
 }
