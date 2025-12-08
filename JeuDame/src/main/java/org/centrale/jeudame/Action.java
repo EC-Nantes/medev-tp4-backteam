@@ -9,6 +9,6 @@ package org.centrale.jeudame;
  * @author dytri
  */
 public interface Action {
-    public void Deplacer(Plateau plateau);
-    public void Prendre(Plateau plateau);
+    public boolean Deplacer(Plateau plateau);
+    public boolean Prendre(Plateau plateau);
 }
