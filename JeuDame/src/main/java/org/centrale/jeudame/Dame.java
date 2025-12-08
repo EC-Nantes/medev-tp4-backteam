@@ -18,7 +18,7 @@ public class Dame extends Piece implements Action {
         int x = this.getX();
         int y = this.getY();
 
-        Piece[][] tableau = plateau.getTableau();
+        Piece[][] tableau = plateau.getBoard();
 
         System.out.println("Les cases suivantes sont disponibles (Entrez un numéro) :");
 
@@ -73,7 +73,7 @@ public class Dame extends Piece implements Action {
         tableau[nx][ny] = this;
         tableau[x][y] = null;
 
-        plateau.setTableau(tableau);
+        plateau.setBoard(tableau);
 
         return true;
     }

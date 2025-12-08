@@ -16,7 +16,7 @@ public class Pion extends Piece implements Action{
         int x = this.getX();
         int y = this.getY();
         int direction;
-        Piece[][] tableau = plateau.getTableau();
+        Piece[][] tableau = plateau.getBoard();
         
         // direction : x = +1 (vers le bas), o = -1 (vers le haut, car ligne haut = x=0)
         if(this.getTeam().equals("x")){
@@ -65,7 +65,7 @@ public class Pion extends Piece implements Action{
             tableau[x][y] = null;
         }
         
-        plateau.setTableau(tableau);
+        plateau.setBoard(tableau);
         
         return true;
     }
