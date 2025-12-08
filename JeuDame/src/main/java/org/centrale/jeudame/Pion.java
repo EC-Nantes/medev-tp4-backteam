@@ -4,6 +4,11 @@
  */
 package org.centrale.jeudame;
 
+<<<<<<< HEAD
+=======
+import java.util.ArrayList;
+import java.util.List;
+>>>>>>> Prendre_
 import java.util.Scanner;
 
 /**
@@ -72,5 +77,50 @@ public class Pion extends Piece implements Action{
     
     public boolean Prendre(Plateau plateau){
         
+=======
+        Piece[][] tableau = plateau.getBoard();
+        List<int[]> prisesPossibles = new ArrayList<>();
+        // Directions possibles pour une prise (dépend de la couleur de la pièce)
+        int[][] directions = {{-1, -1}, {-1, 1}, {1, -1}, {1, 1}};
+
+        for (int[] dir : directions) {
+            int advX = this.getX() + dir[0];
+            int advY = this.getY() + dir[1];
+            int newX = this.getX() + 2 * dir[0];
+            int newY = this.getY() + 2 * dir[1];
+
+            // Vérifie si la case adverse est valide et contient une pièce adverse,
+            // et si la case derrière est vide
+            if (newX > 0 && newX < 10 && newY > 0 && newY < 10 && this.getTeam()!=tableau[advX][advY].getTeam() && tableau[newX][newY]==null) {
+                prisesPossibles.add(new int[]{advX, advY, newX, newY});
+            }
+        }
+
+        if (prisesPossibles.isEmpty()) {
+            System.out.println("Aucune prise possible.");
+            return false;
+        }
+
+        // Affiche les prises possibles
+        System.out.println("Pièces capturables :");
+        for (int i = 0; i < prisesPossibles.size(); i++) {
+            int[] pos = prisesPossibles.get(i);
+            System.out.println((i + 1) + ". (" + pos[0] + ", " + pos[1] + ")");
+        }
+
+        // Demande au joueur de choisir
+        System.out.print("Quelle pièce voulez-vous manger ? (Entrez le numéro) : ");
+        Scanner scanner = new Scanner(System.in);
+        int choix = scanner.nextInt();
+
+        if (choix > 0 && choix <= prisesPossibles.size()) {
+            int[] pos = prisesPossibles.get(choix - 1);
+            Prise(plateau, tableau[pos[0]][pos[1]], pos[2], pos[3]);
+            return true;
+        } else {
+            System.out.println("Choix invalide.");
+            return false;
+        }
+>>>>>>> Prendre_
     }
 }
