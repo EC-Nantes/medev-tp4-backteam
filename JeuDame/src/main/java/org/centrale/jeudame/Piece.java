@@ -13,6 +13,13 @@ public abstract class Piece {
     private int x;
     private int y;
 
+    public Piece(String team, int x, int y) {
+        this.team = team;
+        this.x = x;
+        this.y = y;
+    }
+    
+
     public String getTeam() {
         return team;
     }

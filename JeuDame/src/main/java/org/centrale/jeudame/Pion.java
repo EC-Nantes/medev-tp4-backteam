@@ -11,6 +11,10 @@ import java.util.Scanner;
  * @author dytri
  */
 public class Pion extends Piece implements Action{
+
+    public Pion(String team, int x, int y) {
+        super(team, x, y);
+    }
     
     public boolean Deplacer(Plateau plateau){
         int x = this.getX();
@@ -27,6 +31,7 @@ public class Pion extends Piece implements Action{
         
 
         int nouvelleLigne = x + direction;
+        int newY = y;
 
         System.out.println("Les cases suivantes sont disponibles (Entrez un numéro):");
 
@@ -59,18 +64,40 @@ public class Pion extends Piece implements Action{
         if(choix=="1"){
             tableau[nouvelleLigne][y-1] = this;
             tableau[x][y] = null;
+            newY = y-1;
         }
         if(choix=="2"){
             tableau[nouvelleLigne][y+1] = this;
             tableau[x][y] = null;
+            newY = y+1;
         }
         
+        this.setX(nouvelleLigne);
+        this.setY(newY);
         plateau.setBoard(tableau);
+        verifierPromotion(plateau);
         
         return true;
     }
     
     public boolean Prendre(Plateau plateau){
         
+    }
+    
+    public void verifierPromotion(Plateau plateau) {
+        int x = this.getX();
+        int y = this.getY();
+        Piece[][] board = plateau.getBoard();
+
+        if (this.getTeam().equals("x")) {
+            if (x == 9) { // dernier rang pour les x
+                board[x][y] = new Dame(this.getTeam(), x, y);
+            }
+        } else {
+            if (x == 0) { // dernier rang pour les o
+                board[x][y] = new Dame(this.getTeam(), x, y);
+            }
+        }
+        plateau.setBoard(board);
     }
 }

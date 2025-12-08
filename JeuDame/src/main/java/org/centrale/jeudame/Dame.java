@@ -13,6 +13,10 @@ import java.util.Scanner;
  * @author dytri
  */
 public class Dame extends Piece implements Action {
+
+    public Dame(String team, int x, int y) {
+        super(team, x, y);
+    }
     
     public boolean Deplacer(Plateau plateau) {
         int x = this.getX();
