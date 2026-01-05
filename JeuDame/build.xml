@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="JeuDame" default="jar" basedir="."> 
+<project name="JeuDame" default="all" basedir="."> 
     <description>Simulation d'un jeu de dame</description>
     
     <property name="src.dir" value="src"/>
@@ -47,6 +47,10 @@
             <include name="**" />
           </fileset>
         </javadoc>
+    </target>
+    
+    <target name="all" depends="javadoc,jar">
+        <echo message="Javadoc et JAR générés !"/>
     </target>
     
     
