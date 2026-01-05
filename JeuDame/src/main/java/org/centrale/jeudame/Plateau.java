@@ -20,6 +20,7 @@ import java.util.Scanner;        // pour lire les entrées clavier
 public class Plateau {
     private static final int size = 10;
     private Piece[][] board = new Piece[size][size];
+    public Plateau () {}
 
     public Piece[][] getBoard() {
         return board;
@@ -54,6 +55,40 @@ public class Plateau {
         }
         
     }
+    
+    public int isOver() {
+        boolean hasO = false;
+        boolean hasX = false;
+
+        for (int r = 0; r < size; r++) {
+            for (int c = 0; c < size; c++) {
+                Piece piece = board[r][c];
+
+                if (piece != null) {
+                    if (piece.getTeam().equals("o")) {
+                        hasO = true;
+                    } else if (piece.getTeam().equals("x")) {
+                        hasX = true;
+                    }
+                }
+            }
+        }
+
+        if (hasO && hasX) {
+            return 0;
+        }
+
+        if (hasO) {
+            return 1; // o gagne
+        }
+
+        if (hasX) {
+            return 2; // x gagne
+        }
+
+        return 0;
+    }
+
 
     public void displayBoard() {
         System.out.println("   0 1 2 3 4 5 6 7 8 9");
