@@ -33,7 +33,7 @@ public class Plateau {
      * Génère un plateau de dames 10x10.
      * Les cases sombres et claires alternent.
      */
-    public static String[][] generateBoard() {
+    public void generateBoard() {
 
         // 4 lignes du haut : 'x' une case sur deux
         for (int r = 0; r < 4; r++) {

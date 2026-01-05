@@ -11,7 +11,5 @@ package org.centrale.jeudame;
 public interface Action {
     public boolean Deplacer(Plateau plateau);
     public boolean Prendre(Plateau plateau);
-    public void Deplacer(Plateau plateau);
-    public boolean Prendre(Plateau plateau);
     public void Prise(Plateau plateau, Piece p, int newX, int newY);
 }
