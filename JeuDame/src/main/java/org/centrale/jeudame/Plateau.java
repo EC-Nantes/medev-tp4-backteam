@@ -18,8 +18,8 @@ import java.util.Scanner;        // pour lire les entrées clavier
  * @author rompe
  */
 public class Plateau {
-    private static final int size = 10;
-    private Piece[][] board = new Piece[size][size];
+    private static final int SIZE = 10;
+    private Piece[][] board = new Piece[SIZE][SIZE];
     public Plateau() {}
 
     public Piece[][] getBoard() {
@@ -38,7 +38,7 @@ public class Plateau {
 
         // 4 lignes du haut : 'x' une case sur deux
         for (int r = 0; r < 4; r++) {
-            for (int c = 0; c < size; c++) {
+            for (int c = 0; c < SIZE; c++) {
                 if ((r + c) % 2 == 1) { // une case sur deux (type dames)
                     board[r][c] = new Pion("x", r, c);
                 }
@@ -46,8 +46,8 @@ public class Plateau {
         }
 
         // 4 lignes du bas : 'o' une case sur deux
-        for (int r = size - 4; r < size; r++) {
-            for (int c = 0; c < size; c++) {
+        for (int r = SIZE - 4; r < SIZE; r++) {
+            for (int c = 0; c < SIZE; c++) {
                 if ((r + c) % 2 == 1) {
                     board[r][c] = new Pion("o", r, c);
                 }
@@ -60,8 +60,8 @@ public class Plateau {
         boolean hasO = false;
         boolean hasX = false;
 
-        for (int r = 0; r < size; r++) {
-            for (int c = 0; c < size; c++) {
+        for (int r = 0; r < SIZE; r++) {
+            for (int c = 0; c < SIZE; c++) {
                 Piece piece = board[r][c];
 
                 if (piece != null) {
@@ -94,9 +94,9 @@ public class Plateau {
         System.out.println("   0 1 2 3 4 5 6 7 8 9");
         System.out.println("  ---------------------");
 
-        for (int r = 0; r < size; r++) {
+        for (int r = 0; r < SIZE; r++) {
             System.out.print(r + " | ");
-            for (int c = 0; c < size; c++) {
+            for (int c = 0; c < SIZE; c++) {
 
                 Piece piece = board[r][c];
 
