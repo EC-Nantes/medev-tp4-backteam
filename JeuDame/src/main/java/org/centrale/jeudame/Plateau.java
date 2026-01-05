@@ -55,6 +55,32 @@ public class Plateau {
         
     }
 
+    public void displayBoard() {
+        System.out.println("   0 1 2 3 4 5 6 7 8 9");
+        System.out.println("  ---------------------");
+
+        for (int r = 0; r < size; r++) {
+            System.out.print(r + " | ");
+            for (int c = 0; c < size; c++) {
+
+                Piece piece = board[r][c];
+
+                if (piece == null) {
+                    System.out.print(". ");
+                } 
+                // CAS 1 : distinction par la classe
+                else if (piece instanceof Dame) {
+                    System.out.print(piece.getTeam().toUpperCase() + " ");
+                } 
+                else { // pion
+                    System.out.print(piece.getTeam().toLowerCase() + " ");
+                }
+            }
+            System.out.println("|");
+        }
+
+        System.out.println("  ---------------------");
+    }
 
 
 /**
