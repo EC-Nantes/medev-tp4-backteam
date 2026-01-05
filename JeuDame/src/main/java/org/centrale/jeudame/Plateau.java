@@ -20,7 +20,7 @@ import java.util.Scanner;        // pour lire les entrées clavier
 public class Plateau {
     private static final int size = 10;
     private Piece[][] board = new Piece[size][size];
-
+   
     public Piece[][] getBoard() {
         return board;
     }
