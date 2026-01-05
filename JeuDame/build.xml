@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="JeuDame" default="build" basedir="."> 
+<project name="JeuDame" default="jar" basedir="."> 
     <description>Simulation d'un jeu de dame</description>
     
     <property name="src.dir" value="src"/>
