@@ -102,7 +102,7 @@ public class Dame extends Piece implements Action {
             }
 
             /// Vérifier si on a trouvé une pièce adverse
-            if (advX > 0 && advX < 10 && advY > 0 && advY < 10 && this.getTeam()!=tableau[advX][advY].getTeam() && tableau[advX][advY]!=null) {
+            if (advX > 0 && advX < 10 && advY > 0 && advY < 10 && !this.getTeam().equals(tableau[advX][advY].getTeam()) && tableau[advX][advY]!=null) {
                 int newX = advX + dx;
                 int newY = advY + dy;
             
