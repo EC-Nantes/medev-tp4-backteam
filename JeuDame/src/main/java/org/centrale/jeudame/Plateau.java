@@ -29,6 +29,10 @@ public class Plateau {
     public void setBoard(Piece[][] board) {
         this.board = board;
     }
+
+    public static int getSIZE() {
+        return SIZE;
+    }
     
     /**
      * Génère un plateau de dames 10x10.

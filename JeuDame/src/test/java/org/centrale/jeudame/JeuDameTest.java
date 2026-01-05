@@ -41,11 +41,12 @@ public class JeuDameTest {
      */
     @Test
     public void testMain() {
-        System.out.println("main");
+        System.out.println("Test de lancement d'une nouvelle partie");
         String[] args = null;
+        JeuDame instance = new JeuDame();
         JeuDame.main(args);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        assertEquals(10, instance.plateau.getSIZE(),"Mauvaise taille de plateau");
     }
 
     /**
@@ -59,5 +60,6 @@ public class JeuDameTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+    
     
 }
