@@ -32,6 +32,9 @@
     <target name="jar" depends="compile">
         <jar destfile="${jar.dir}/${jar.name}"
              basedir="${classes.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="org.centrale.jeudame.JeuDame"/>
+            </manifest>
         </jar>
     </target>
     
