@@ -63,23 +63,24 @@ public class Pion extends Piece implements Action{
         }
         
         Scanner scanner = new Scanner(System.in);
-        String choix = scanner.nextLine();
+        int choix = scanner.nextInt();
         
-        if(choix=="1"){
-            tableau[nouvelleLigne][y-1] = this;
-            tableau[x][y] = null;
+        if(choix == 1){
             newY = y-1;
-        }
-        if(choix=="2"){
-            tableau[nouvelleLigne][y+1] = this;
+            tableau[nouvelleLigne][newY] = this;
+            System.out.println("Pièce déplacée en " + nouvelleLigne + " " + newY);
             tableau[x][y] = null;
+        }
+        if(choix == 2){
             newY = y+1;
+            tableau[nouvelleLigne][newY] = this;
+            System.out.println("Pièce déplacée en " + nouvelleLigne + " " + newY);
+            tableau[x][y] = null;   
         }
         
         this.setX(nouvelleLigne);
         this.setY(newY);
         plateau.setBoard(tableau);
-        verifierPromotion(plateau);
         
         return true;
     }
@@ -99,7 +100,7 @@ public class Pion extends Piece implements Action{
 
             // Vérifie si la case adverse est valide et contient une pièce adverse,
             // et si la case derrière est vide
-            if (newX > 0 && newX < 10 && newY > 0 && newY < 10 && this.getTeam()!=tableau[advX][advY].getTeam() && tableau[newX][newY]==null) {
+            if (newX > 0 && newX < 10 && newY > 0 && newY < 10 && tableau[advX][advY]!=null && this.getTeam()!=tableau[advX][advY].getTeam() && tableau[newX][newY]==null) {
                 prisesPossibles.add(new int[]{advX, advY, newX, newY});
             }
         }

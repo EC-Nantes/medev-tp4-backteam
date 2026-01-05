@@ -12,8 +12,8 @@ import java.util.Scanner;
 public class JeuDame {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
         Plateau plateau = new Plateau();
+        plateau.generateBoard();
         TourDeJeu(plateau);
         
     }
