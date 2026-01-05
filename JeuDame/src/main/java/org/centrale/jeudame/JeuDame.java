@@ -14,11 +14,11 @@ public class JeuDame {
     public static void main(String[] args) {
         System.out.println("Hello World!");
         Plateau plateau = new Plateau();
-        TourDeJeu();
+        TourDeJeu(plateau);
         
     }
     
-    public static void TourDeJeu(){
+    public static void TourDeJeu(Plateau plateau){
         Scanner scanner = new Scanner(System.in);
         String joueurCourant = "o"; 
         boolean est_fini = false;
@@ -80,7 +80,7 @@ public class JeuDame {
             joueurCourant = joueurCourant.equals("x") ? "o" : "x";
             
             
-            int winner = board.isOver();
+            int winner = plateau.isOver();
             if(winner != 0){
                 est_fini = true;
                 

@@ -18,7 +18,8 @@ public class Dame extends Piece implements Action {
         super(team, x, y);
     }
     
-    public boolean Deplacer(Plateau plateau) {
+    @Override
+    public boolean deplacer(Plateau plateau) {
         int x = this.getX();
         int y = this.getY();
 
@@ -82,7 +83,8 @@ public class Dame extends Piece implements Action {
         return true;
     }
     
-    public boolean Prendre(Plateau plateau){
+    @Override
+    public boolean prendre(Plateau plateau){
         Piece[][] tableau = plateau.getBoard();
         List<int[]> prisesPossibles = new ArrayList<>();
 
@@ -132,8 +134,8 @@ public class Dame extends Piece implements Action {
 
         if (choix > 0 && choix <= prisesPossibles.size()) {
             int[] pos = prisesPossibles.get(choix - 1);
-            Prise(plateau, tableau[pos[0]][pos[1]], pos[2], pos[3]);
-            Prendre(plateau);
+            prise(plateau, tableau[pos[0]][pos[1]], pos[2], pos[3]);
+            prendre(plateau);
             return true;
         } else {
             System.out.println("Choix invalide.");

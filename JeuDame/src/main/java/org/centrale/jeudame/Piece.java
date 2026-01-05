@@ -8,7 +8,7 @@ package org.centrale.jeudame;
  *
  * @author dytri
  */
-public abstract class Piece {
+public abstract class Piece implements Action{
     private String team;
     private int x;
     private int y;
@@ -44,7 +44,15 @@ public abstract class Piece {
         this.y = y;
     }
     
-    public void Prise(Plateau plateau, Piece piece, int newX, int newY){
+    public boolean prendre(Plateau plateau){
+        return true;
+    }
+    
+    public boolean deplacer(Plateau plateau){
+        return true;
+    }
+    
+    public void prise(Plateau plateau, Piece piece, int newX, int newY){
         // Supprimer la pièce adverse du plateau
         plateau.getBoard()[piece.getX()][piece.getY()] = null;
 

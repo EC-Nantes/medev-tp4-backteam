@@ -9,7 +9,7 @@ package org.centrale.jeudame;
  * @author dytri
  */
 public interface Action {
-    public boolean Deplacer(Plateau plateau);
-    public boolean Prendre(Plateau plateau);
-    public void Prise(Plateau plateau, Piece p, int newX, int newY);
+    public boolean deplacer(Plateau plateau);
+    public boolean prendre(Plateau plateau);
+    public void prise(Plateau plateau, Piece p, int newX, int newY);
 }

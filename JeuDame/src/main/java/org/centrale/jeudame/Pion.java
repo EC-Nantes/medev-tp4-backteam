@@ -19,7 +19,8 @@ public class Pion extends Piece implements Action{
         super(team, x, y);
     }
     
-    public boolean Deplacer(Plateau plateau){
+    @Override
+    public boolean deplacer(Plateau plateau){
         int x = this.getX();
         int y = this.getY();
         int direction;
@@ -83,7 +84,8 @@ public class Pion extends Piece implements Action{
         return true;
     }
     
-    public boolean Prendre(Plateau plateau){
+    @Override
+    public boolean prendre(Plateau plateau){
         Piece[][] tableau = plateau.getBoard();
         List<int[]> prisesPossibles = new ArrayList<>();
         // Directions possibles pour une prise (dépend de la couleur de la pièce)
@@ -121,7 +123,7 @@ public class Pion extends Piece implements Action{
 
         if (choix > 0 && choix <= prisesPossibles.size()) {
             int[] pos = prisesPossibles.get(choix - 1);
-            Prise(plateau, tableau[pos[0]][pos[1]], pos[2], pos[3]);
+            prise(plateau, tableau[pos[0]][pos[1]], pos[2], pos[3]);
             return true;
         } else {
             System.out.println("Choix invalide.");
